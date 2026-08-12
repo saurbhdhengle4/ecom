@@ -1,8 +1,10 @@
+import 'package:demapp/core/router/app_router.dart';
 import 'package:demapp/features/splash/presentation/bloc/splash_bloc.dart';
 import 'package:demapp/features/splash/presentation/bloc/splash_event.dart';
 import 'package:demapp/features/splash/presentation/bloc/splash_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -24,6 +26,7 @@ class _SplashPageState extends State<SplashPage> {
   Widget build(BuildContext context) {
     return BlocListener<SplashBloc, SplashState>(
       listener: (context, state) {
+        print(state);
         if (state is NavigationHome) {
           ScaffoldMessenger.of(
             context,
@@ -31,9 +34,7 @@ class _SplashPageState extends State<SplashPage> {
         }
 
         if (state is NavigationLogin) {
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(SnackBar(content: Text("Go Login")));
+          context.go(AppRoutes.login);
         }
       },
       child: Scaffold(
