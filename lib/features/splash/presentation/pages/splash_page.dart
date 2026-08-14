@@ -36,6 +36,10 @@ class _SplashPageState extends State<SplashPage> {
         if (state is NavigationLogin) {
           context.go(AppRoutes.login);
         }
+
+        if (state is NavigationHome) {
+          context.go(AppRoutes.home);
+        }
       },
       child: Scaffold(
         body: Center(
