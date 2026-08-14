@@ -1,5 +1,7 @@
+import 'package:demapp/core/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../bloc/login_bloc.dart';
 import '../bloc/login_event.dart';
@@ -50,10 +52,7 @@ class _LoginPageState extends State<LoginPage> {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text('Welcome ${state.user?.firstname}')),
             );
-
-            // Navigate to Home here.
-            //
-            // context.go('/home');
+            context.go(AppRoutes.home);
           }
 
           if (state.status == LoginStatus.failure) {
