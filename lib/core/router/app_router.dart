@@ -1,6 +1,8 @@
 import 'package:demapp/features/auth/presentation/bloc/login_bloc.dart';
 import 'package:demapp/features/auth/presentation/pages/login_page.dart';
 import 'package:demapp/features/cart/presentation/pages/cart_page.dart';
+import 'package:demapp/features/checkout/presentation/pages/checkout_page.dart';
+import 'package:demapp/features/checkout/presentation/pages/order_success_page.dart';
 import 'package:demapp/features/products/presentation/pages/home_page.dart';
 import 'package:demapp/features/splash/presentation/pages/splash_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,6 +19,8 @@ abstract class AppRoutes {
   static const String login = '/login';
   static const String home = '/home';
   static const String cart = '/cart';
+  static const String checkout = '/checkout';
+  static const String ordersuccess='/order-success';
 }
 
 /// App-wide route table. Add a new feature's page here as its own
@@ -42,6 +46,19 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: AppRoutes.cart,
       builder: (context, state) => const CartPage(),
+    ),
+    GoRoute(
+      path: AppRoutes.checkout,
+      builder: (context, state) {
+        return const CheckoutPage();
+      },
+    ),
+
+    GoRoute(
+      path:AppRoutes.ordersuccess ,
+      builder: (context, state) {
+        return const OrderSuccessPage();
+      },
     ),
   ],
 );
