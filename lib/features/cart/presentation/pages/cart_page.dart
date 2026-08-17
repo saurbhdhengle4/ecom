@@ -1,3 +1,4 @@
+import 'package:demapp/core/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -159,7 +160,7 @@ class _CartBottomSection extends StatelessWidget {
             height: 50,
             child: ElevatedButton(
               onPressed: () {
-                context.push('/checkout');
+                context.push(AppRoutes.checkout);
               },
               child: const Text('Proceed to Checkout'),
             ),
